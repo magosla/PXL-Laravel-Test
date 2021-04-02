@@ -13,7 +13,7 @@ The json file (challenge.json) for this challenge is stored in the data_file dir
 
 ## Solution to bonus 
 >> <b>Question:</b> What	happens	when	the	source	file	grows	to,	say,	500	times	the	given	size?
-<br><br> <b>Answer:</b> To enable efficient use of system memory, I used a library called [Json Machine](https://github.com/halaxa/json-machine) to parse the Json file in place of PHP's own ```json_decode``` function. This would enable the parsing a larger files, fast and efficiently.
+<br><br> <b>Answer:</b> To enable efficient use of system memory, I used a library called [Json Machine](https://github.com/halaxa/json-machine) to parse the Json file in place of PHP's own ```json_decode``` function. This would enable parsing larger files, fast and efficiently.
 
 >> <b>Question:</b> Is	your	solution	easily	adjustable	to	different	source	data	formats	(CSV, XML, etc.)? <br><br> <b>Answer:</b> Yes it is. To be able to parse files in other format, a parser with class named with the file extension in Upper case (eg: to parse an xml files App\Services\DataFileProcessor\FileParsers\XML.php) that implements ```App\Services\DataFileProcessor\FileParsers\FileParserInterface``` is created.
 
