@@ -50,5 +50,10 @@ class AgeFilterTest extends TestCase
         // when date of birth is null
         $data["date_of_birth"] = null;
         $this->assertSame($data, $filter->filter($data));
+
+        
+        // when date of birth is invalid
+        $data["date_of_birth"] = 'sdsd';
+        $this->assertSame($data, $filter->filter($data));
     }
 }
