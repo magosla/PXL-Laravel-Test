@@ -27,10 +27,9 @@ class AgeFilter implements FilterInterface
         $age = $birthDateTime ? (date_diff($birthDateTime, date_create('today'))->y)
             : null;
 
-        if (!$age && $this->allowUnknownAge || $age < $this->minAge || $age > $this->maxAge) {
-            return null;
+        if ((!$age && $this->allowUnknownAge) || ($age >= $this->minAge && $age <= $this->maxAge)) {
+            return $data;
         }
-
-        return $data;
+        return null;
     }
 }
