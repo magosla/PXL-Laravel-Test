@@ -101,7 +101,7 @@ class Processor
         $record['credit_card'] = \json_encode($record['credit_card'] ?? []);
 
         // Format date_of_birth field to ensuse it's consistent with datetime
-        if (($timestamp = strtotime($record['date_of_birth'])) !== false) {
+        if (\is_string($record['date_of_birth']) && ($timestamp = strtotime($record['date_of_birth'])) !== false) {
             $record['date_of_birth'] = date('Y-m-d H:i:s', $timestamp);
         } else {
             $record['date_of_birth'] = null;
