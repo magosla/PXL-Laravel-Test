@@ -54,8 +54,8 @@ class Processor
     {
         $batch = []; // Needed to save record in batches
         foreach ($records as $record) {
-            //skip any records that was previously processed
-            if ($recordsToSkip > 0 && $recordsToSkip-- >= 1) {
+            //skip any records that was previously processed   Fix: Record not skipped if available
+            if ($recordsToSkip > 0 && $recordsToSkip-- > 0) {
                 continue;
             }
             $this->recordsProcessed++;
